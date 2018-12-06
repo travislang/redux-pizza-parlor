@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { Hashrouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
-import CustomerForm from '../Customer/CustomForm.jsx';
+import Navbar from '../Navbar/Navbar';
+import Customer from '../Customer/Customer';
+import Checkout from '../Checkout/Checkout';
+import Admin from '../Admin/Admin';
+import Home from '../Home/Home';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Prime Pizza</h1>
-        </header>
-        <br/>
-        <img src="images/pizza_photo.png"/>
-        <p>Pizza is great.</p>
-        <CustomerForm />
-      </div>
+      <Router>
+        <div>
+          <Navbar/>
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/customer" component={Customer}></Route>
+          <Route path="/checkout" component={Checkout}></Route>
+          <Route path="/admin" component={Admin}></Route>
+        </div>
+      </Router>
     );
   }
 }
