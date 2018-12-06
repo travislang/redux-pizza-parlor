@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import CustomerForm from '../Customer/CustomForm.jsx';
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
         <br/>
         <img src="images/pizza_photo.png"/>
         <p>Pizza is great.</p>
+        <CustomerForm />
       </div>
     );
   }
