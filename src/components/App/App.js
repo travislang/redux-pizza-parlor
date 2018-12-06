@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-
 import { Hashrouter as Router, Route, Link } from 'react-router-dom';
-import axios from 'axios';
 import './App.css';
 import Navbar from '../Navbar/Navbar';
 import Customer from '../Customer/Customer';
 import Checkout from '../Checkout/Checkout';
 import Admin from '../Admin/Admin';
 import Home from '../Home/Home';
+
 
 class App extends Component {
   render() {

@@ -1,0 +1,13 @@
+.customerForm {
+  padding: 50px;
+}
+
+.customerInfo {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+input[type="text"] {
+  display: block;
+  margin: 20px;
+}
