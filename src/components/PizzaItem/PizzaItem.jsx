@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
+import './PizzaItem.css'
 class PizzaItem extends Component {
     state = {
         selected: false
     }
     addItem = (pizza) => {
         console.log('worked');
-        
+
         this.setState({
             selected: true
         })
@@ -22,20 +29,42 @@ class PizzaItem extends Component {
 
     render() {
         let button;
-        if( this.state.selected ) {
-            button = <button onClick={ () => this.deleteItem(this.props.details)}>Delete</button>
+        if (this.state.selected) {
+            button = 
+            <Button size="large"variant="contained" color="secondary" onClick={() => this.deleteItem(this.props.details)}>
+                Remove
+            </Button>
         }
         else {
-            button = <button onClick={ () => this.addItem(this.props.details)}>Add</button>
+            button = 
+            <Button size="large" variant="contained" color="primary" onClick={() => this.addItem(this.props.details)}>
+                Add
+            </Button>
         }
         return (
-            <div className='pizzaItem'>
-                <img src={this.props.details.image_path} alt=""/>
-                <h3>{this.props.details.name}</h3>
-                <p>{this.props.details.description}</p>
-                <p>{this.props.details.price}</p>
-                {button}
-            </div>
+            <Card className='card'>
+                <CardActionArea>
+                    <CardMedia
+                        className="media"
+                        image={this.props.details.image_path}
+                        title="pizza"
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                            {this.props.details.name}
+                        </Typography>
+                        <Typography component="p">
+                            {this.props.details.description}
+                        </Typography>
+                        <Typography component="p">
+                            price: {this.props.details.price}
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+                <CardActions>
+                    {button}
+                </CardActions>
+            </Card>
         )
     }
 }
