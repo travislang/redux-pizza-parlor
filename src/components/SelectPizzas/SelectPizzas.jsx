@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PizzaItem from '../PizzaItem/PizzaItem';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { WithRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 
 class SelectPizzas extends Component {
@@ -31,8 +31,11 @@ class SelectPizzas extends Component {
         })
 
         return (
-            <div>{pizzas}</div>
-            <button onClick={this.handleNext}>Next</button>
+            <div>
+                <div>{pizzas}</div>
+                <button onClick={this.handleNext}>Next</button>
+            </div>
+            
             
         )
     }
@@ -45,4 +48,4 @@ const mapReduxStateToProps = (reduxStore) => {
     }
 }
 
-export default connect(mapReduxStateToProps)(SelectPizzas);
+export default connect(mapReduxStateToProps)(withRouter(SelectPizzas));
