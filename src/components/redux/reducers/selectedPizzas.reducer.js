@@ -1,7 +1,7 @@
 const selectedPizzas = ( state = [], action ) => {
     switch( action.type ) {
         case 'SELECT_PIZZA':
-            return [...state, action.payload];
+            return [...state, action];
         default:
             return state;
     }
