@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import CustomerOrder from '../Customer/CustomerOrder/CustomerOrder';
 
 class Checkout extends Component {
 
@@ -9,7 +10,10 @@ class Checkout extends Component {
 
   render() {
     return (
-        <h2>Step 3: Checkout</h2>
+        <div>
+            <h2>Step 3: Checkout</h2>
+            <CustomerOrder />
+        </div>
       );
   }
 }
