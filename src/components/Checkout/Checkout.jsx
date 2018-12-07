@@ -9,7 +9,7 @@ class Checkout extends Component {
 
   render() {
     return (
-        <h1>Checkout</h1>
+        <h2>Step 3: Checkout</h2>
       );
   }
 }
