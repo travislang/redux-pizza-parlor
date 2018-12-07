@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PizzaItem from '../PizzaItem/PizzaItem';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { WithRouter } from 'react-router-dom';
+
 
 class SelectPizzas extends Component {
 
@@ -16,6 +18,9 @@ class SelectPizzas extends Component {
             })
         })
     }
+    handleNext = () => {
+        this.props.history.push('/customer');
+    } 
     componentDidMount() {
         this.getPizzas();
     }
@@ -27,6 +32,7 @@ class SelectPizzas extends Component {
 
         return (
             <div>{pizzas}</div>
+            <button onClick={this.handleNext}>Next</button>
             
         )
     }
