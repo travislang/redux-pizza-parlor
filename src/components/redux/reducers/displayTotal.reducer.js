@@ -1,9 +1,9 @@
 const displayTotal = (state = false, action) => {
   switch (action.type) {
     case 'SET_DISPLAY':
-      return action.payload
+      return action.payload;
     default:
-      return false
+      return state;
   }
 }
 
