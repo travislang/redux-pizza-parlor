@@ -16,7 +16,7 @@ class Admin extends Component {
 
 
   refreshData() {
-    axios.get('/api/orders').then((response) => {
+    axios.get('/api/order').then((response) => {
       this.setState({
         orders: response.data
       });
