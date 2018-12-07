@@ -9,7 +9,10 @@ class Checkout extends Component {
     checkout = () => {
         const customer = this.props.reduxStore.customer;
         const pizzas = this.props.reduxStore.selectedPizzas;
-        const total = this.props.reduxStore.displayTotal;
+        let total = 0;
+        for (const pizza of pizzas) {
+            total = total + parseFloat(pizza.price);
+        }
         let data = {
             customer_name: customer.customer_name,
             street_address: customer.street_address,
@@ -17,7 +20,7 @@ class Checkout extends Component {
             zip: customer.zip,
             type: customer.type,
             total: total,
-            pizza: pizzas
+            pizzas: pizzas
         }
         console.log(data);
         
@@ -26,6 +29,8 @@ class Checkout extends Component {
         .then( res => {
             this.props.dispatch({ type: 'CLEAR_INFO' })
             this.props.history.push('/');
+        }).catch( err => {
+            console.log('error in post:', err );
         })
     }
 
