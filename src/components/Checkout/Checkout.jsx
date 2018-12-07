@@ -6,18 +6,21 @@ import CustomerInfo from '../Customer/CustomerInfo/CustomerInfo';
 import CustomerOrder from '../Customer/CustomerOrder/CustomerOrder';
 
 class Checkout extends Component {
-
     checkout = () => {
-        let customer = this.props.reduxStore.customer;
-        console.log('customer', customer);
-        
-        let pizzas = this.props.reduxStore.selectedPizzas;
-        console.log('pizzas;', pizzas);
-        
+        const customer = this.props.reduxStore.customer;
+        const pizzas = this.props.reduxStore.selectedPizzas;
+        const total = this.props.reduxStore.displayTotal;
         let data = {
-            ...customer,
-            pizzas: pizzas
+            customer_name: customer.customer_name,
+            street_address: customer.street_address,
+            city: customer.city,
+            zip: customer.zip,
+            type: customer.type,
+            total: total,
+            pizza: pizzas
         }
+        console.log(data);
+        
         
         axios.post('/api/order', data)
         .then( res => {
@@ -31,8 +34,6 @@ class Checkout extends Component {
     }
 
     render() {
-        console.log(this.props.reduxStore.customer);
-        
         return (
             <div>
                 <h2>Step 3: Checkout</h2>
