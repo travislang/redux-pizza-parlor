@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Customer.css';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 const customerInfoObject = {
   customer_name: '',

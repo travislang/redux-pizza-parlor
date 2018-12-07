@@ -39,12 +39,18 @@ class Checkout extends Component {
     }
 
     render() {
+        const pizzas = this.props.reduxStore.selectedPizzas;
+        let total = 0;
+        for (const pizza of pizzas) {
+            total = total + parseFloat(pizza.price);
+        }
         return (
             <div>
                 <h2>Step 3: Checkout</h2>
                 <CustomerInfo />
                 <CustomerOrder />
                 <button onClick={this.checkout}>Checkout</button>
+                {total}
             </div>
         );
     }
