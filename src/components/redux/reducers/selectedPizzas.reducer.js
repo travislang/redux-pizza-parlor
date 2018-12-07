@@ -1,9 +1,9 @@
 const selectedPizzas = ( state = [], action ) => {
     switch( action.type ) {
         case 'SELECT_PIZZA':
-            return [...state, action]
+            return [...state, action];
         default:
-            return state
+            return state;
     }
 }
 
