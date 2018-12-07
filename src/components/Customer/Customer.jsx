@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Customer.css';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 const customerInfoObject = {
   customer_name: '',
@@ -17,6 +18,10 @@ class Customer extends Component {
     this.setState(customerInfoObject);
   }
 
+  componentDidMount() {
+    this.props.dispatch({ type: 'SET_DISPLAY', payload: true });
+  }
+
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
@@ -27,6 +32,7 @@ class Customer extends Component {
     event.preventDefault();
     this.props.dispatch({ type: 'ADD_CUSTOMER', action: this.state });
     this.clearCustomerInfoFields();
+    this.props.history.push('/checkout');
   }
 
   render() {
@@ -72,4 +78,4 @@ class Customer extends Component {
   }
 }
 
-export default Customer;
+export default connect()(Customer);
