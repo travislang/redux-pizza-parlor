@@ -1,9 +1,13 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 class Navbar extends Component {
 
-    render(){
+    render() {
         // calculate total
         let total = 0;
         let pizzas = this.props.pizzas;
@@ -14,21 +18,31 @@ class Navbar extends Component {
         let navbarHtml;
         if (this.props.displayTotal) {
             navbarHtml =
-                <div>
-                    <h3>Total: {total}</h3>
-                </div>
+            <Grid xs={1}>
+                <Typography className="total" variant="h6" color="inherit">
+                Total: {total}
+                </Typography>
+            </Grid>
         }
         return (
             <div>
-                <h1>Prime Pizza</h1>
-                {navbarHtml}
+                <AppBar className="navbar" position="static" color="primary">
+                    <Toolbar>
+                        <Grid xs={11}>
+                        <Typography variant="h6" color="inherit">
+                            Prime Pizza
+                        </Typography>
+                        </Grid>
+                          {navbarHtml}
+                    </Toolbar>
+                </AppBar>
             </div>
         )
     }
 }
 
 const mapStateToProps = store => {
-    return{
+    return {
         pizzas: store.selectedPizzas,
         displayTotal: store.displayTotal
     }
