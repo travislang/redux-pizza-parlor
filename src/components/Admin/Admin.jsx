@@ -19,14 +19,14 @@ class Admin extends Component {
     axios.get('/api/orders').then((response) => {
       this.setState({
         orders: response.data
-      })
-    })
+      });
+    });
   }
 
 
   render() {
     let orderhHtml = this.state.orders.map((order) => {
-      return <OrderItem key={order.id} order={order}/> 
+      return <OrderItem key={order.id} order={order}/>;
     })
     return (
       <div>

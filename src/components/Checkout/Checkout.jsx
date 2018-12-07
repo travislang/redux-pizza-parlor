@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CustomerInfo from '../Customer/CustomerInfo/CustomerInfo';
+import CustomerOrder from '../Customer/CustomerOrder/CustomerOrder';
 
 class Checkout extends Component {
 
@@ -13,6 +14,7 @@ class Checkout extends Component {
       <div>
         <h2>Step 3: Checkout</h2>
         <CustomerInfo />
+        <CustomerOrder />
       </div>
     );
   }
