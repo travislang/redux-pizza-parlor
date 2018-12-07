@@ -7,9 +7,13 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 // import reducers
 import selectedPizzas from './components/redux/reducers/selectedPizzas.reducer';
+import displayTotal from './components/redux/reducers/displayTotal.reducer';
 
 const storeInstance = createStore(
-    combineReducers({ selectedPizzas }),
+    combineReducers({
+      selectedPizzas,
+      displayTotal
+     }),
     applyMiddleware(logger)
 )
 

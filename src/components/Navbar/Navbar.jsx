@@ -13,7 +13,7 @@ class Navbar extends Component {
         // conditional render
         let navbarHtml;
         if (this.props.displayTotal) {
-            navbarHtml = 
+            navbarHtml =
                 <div>
                     <h3>Total: {total}</h3>
                 </div>
@@ -27,7 +27,7 @@ class Navbar extends Component {
     }
 }
 
-mapStateToProps = store => {
+const mapStateToProps = store => {
     return{
         pizzas: store.selectedPizzas,
         displayTotal: store.displayTotal
