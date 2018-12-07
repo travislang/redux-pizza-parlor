@@ -6,7 +6,7 @@ class OrderItem extends Component {
         let order = this.props.order;
         return (
             <tr>
-                <td>{order.name}</td>
+                <td>{order.customer_name}</td>
                 <td>{order.time}</td>
                 <td>{order.type}</td>
                 <td>{order.total}</td>
