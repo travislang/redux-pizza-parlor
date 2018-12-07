@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-<<<<<<< HEAD
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
-=======
 import CustomerInfo from '../Customer/CustomerInfo/CustomerInfo';
->>>>>>> cb776edac766ed8df397afa7987aea76b38c2aaf
 import CustomerOrder from '../Customer/CustomerOrder/CustomerOrder';
 
 class Checkout extends Component {
@@ -27,9 +24,6 @@ class Checkout extends Component {
             this.props.dispatch({ type: 'CLEAR_INFO' })
             this.props.history.push('/');
         })
-        
-
-<<<<<<< HEAD
     }
 
     componentDidMount() {
@@ -42,22 +36,12 @@ class Checkout extends Component {
         return (
             <div>
                 <h2>Step 3: Checkout</h2>
+                <CustomerInfo />
                 <CustomerOrder />
                 <button onClick={this.checkout}>Checkout</button>
             </div>
         );
     }
-=======
-  render() {
-    return (
-      <div>
-        <h2>Step 3: Checkout</h2>
-        <CustomerInfo />
-        <CustomerOrder />
-      </div>
-    );
-  }
->>>>>>> cb776edac766ed8df397afa7987aea76b38c2aaf
 }
 
 const mapReduxStateToProps = (reduxStore) => {
