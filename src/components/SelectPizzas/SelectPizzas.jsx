@@ -22,16 +22,14 @@ class SelectPizzas extends Component {
     handleNext = () => {
         this.props.history.push('/customer');
     } 
-    handlePizzaClick = (pizza) => {
-        this.props.dispatch({ type: 'SELECT_PIZZA', payload: pizza})
-    }
+   
     componentDidMount() {
         this.getPizzas();
     }
 
     render() {
         const pizzas = this.state.pizzas.map((pizza) => {
-            return <PizzaItem handlePizzaClick={this.handlePizzaClick} key={pizza.id} details={pizza} />
+            return <PizzaItem key={pizza.id} details={pizza} />
         })
 
         return (
