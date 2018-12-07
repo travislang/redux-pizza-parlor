@@ -30,7 +30,7 @@ class Customer extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.dispatch({ type: 'ADD_CUSTOMER', action: this.state });
+    this.props.dispatch({ type: 'ADD_CUSTOMER', payload: this.state });
     this.clearCustomerInfoFields();
     this.props.history.push('/checkout');
   }
