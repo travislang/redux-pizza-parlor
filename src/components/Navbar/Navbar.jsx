@@ -12,7 +12,7 @@ class Navbar extends Component {
         let total = 0;
         let pizzas = this.props.pizzas;
         for (const pizza of pizzas) {
-            total = total + pizza.price;
+            total = total + parseFloat(pizza.price);
         }
         // conditional render
         let navbarHtml;
