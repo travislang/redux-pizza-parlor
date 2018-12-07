@@ -1,0 +1,12 @@
+.customerInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.customerDetails {
+  justify-content: space-between;
+}
+
+.cutomerType {
+  justify-content: space-between;
+}

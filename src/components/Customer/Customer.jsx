@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom';
 const customerInfoObject = {
   customer_name: '',
   street_address: '',
-  city: '',
+  city_state: '',
   zip: '',
   type: ''
 }
@@ -30,7 +30,7 @@ class Customer extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.dispatch({ type: 'ADD_CUSTOMER', action: this.state });
+    this.props.dispatch({ type: 'ADD_CUSTOMER', payload: this.state });
     this.clearCustomerInfoFields();
     this.props.history.push('/checkout');
   }
@@ -43,7 +43,7 @@ class Customer extends Component {
           <div>
             <input onChange={this.handleChange} type="text" placeholder="name" name="customer_name" value={this.state.customer_name} />
             <input onChange={this.handleChange} type="text" placeholder="Street Address" name="street_address" value={this.state.street_address} />
-            <input onChange={this.handleChange} type="text" placeholder="City" name="city" value={this.state.city} />
+            <input onChange={this.handleChange} type="text" placeholder="City, State" name="cityState" value={this.state.cityState} />
             <input onChange={this.handleChange} type="number" placeholder="Zip" name="zip" value={this.state.zip} />
           </div>
           <div>
