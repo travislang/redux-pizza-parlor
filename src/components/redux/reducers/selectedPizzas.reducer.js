@@ -11,6 +11,8 @@ const selectedPizzas = ( state = [], action ) => {
         case 'DELETE_PIZZA':
             return state.filter( (item) => {return item.id !== action.payload.id 
             })
+        case 'CLEAR_INFO':
+            return []
         default:
             return state;
     }
