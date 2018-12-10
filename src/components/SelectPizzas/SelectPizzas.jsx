@@ -3,7 +3,8 @@ import PizzaItem from '../PizzaItem/PizzaItem';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
-
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 import './SelectPizzas.css';
 
 class SelectPizzas extends Component {
@@ -35,7 +36,11 @@ class SelectPizzas extends Component {
         return (
             <div>
                 <div className='pizzaContainer'>{pizzas}</div>
-                <button onClick={this.handleNext}>Next</button>
+                <div>
+                    <Button size="large" variant="contained" color="default" onClick={this.handleNext}>
+                        Next
+                    </Button>
+                </div>
             </div>
             
             

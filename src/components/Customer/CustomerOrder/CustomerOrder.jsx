@@ -13,9 +13,9 @@ class CustomerOrder extends Component {
                 </thead>
                 <tbody>
                     {this.props.reduxStore.selectedPizzas.map( item => {
-                        return <tr>
+                        return <tr key={item.id}>
                                     <td>{item.name}</td>
-                                    <td>{item.description}</td>
+                                    <td>{item.price}</td>
                                 </tr>
                     } ) }
                 </tbody>

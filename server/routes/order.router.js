@@ -16,7 +16,8 @@ router.get('/', (req, res) => {
 // POST a new order
 router.post('/', async (req, res) => {
     const client = await pool.connect();
-
+    console.log(req.body);
+    
     try {
         const {
             customer_name,
@@ -32,10 +33,9 @@ router.post('/', async (req, res) => {
         VALUES ($1, $2, $3, $4, $5, $6)
         RETURNING id;`, [customer_name, street_address, city, zip, type, total]);
         const orderId = orderInsertResults.rows[0].id;
-
         await Promise.all(pizzas.map(pizza => {
             const insertLineItemText = `INSERT INTO "line_item" ("order_id", "pizza_id", "quantity") VALUES ($1, $2, $3)`;
-            const insertLineItemValues = [orderId, pizza.id, pizza.quantity];
+            const insertLineItemValues = [orderId, pizza.id, 1];
             return client.query(insertLineItemText, insertLineItemValues);
         }));
 

@@ -10,10 +10,12 @@ class CustomerInfo extends Component {
         <div className="customerDetails">
           <p>{this.props.customer.customer_name}</p>
           <p>{this.props.customer.street_address}</p>
-          <p>{this.props.customer.city_state} {this.props.customer.zip}</p>
+          <p>{this.props.customer.city} {this.props.customer.zip}</p>
         </div>
         <div className="cutomerType">
-          {this.props.customer.type}
+          {this.props.customer.type ?
+            <p>For {this.props.customer.type}</p> :
+            null}
         </div>
       </div>;
     } else {
@@ -27,7 +29,7 @@ class CustomerInfo extends Component {
 
 const mapStateToProps = (reduxStore) => {
   return {
-    customer: reduxStore.customer.action
+    customer: reduxStore.customer
   }
 }
 

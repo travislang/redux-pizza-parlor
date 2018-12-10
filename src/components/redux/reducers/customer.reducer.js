@@ -1,7 +1,9 @@
 const customer = (state = [], action) => {
   switch(action.type) {
     case 'ADD_CUSTOMER':
-      return action;
+          return action.payload;;
+    case 'CLEAR_INFO':
+        return []
     default:
       return state;
   }
